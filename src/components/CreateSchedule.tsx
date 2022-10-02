@@ -3,7 +3,7 @@ import Palette from "./Palette";
 
 const CreateSchedule = () => {
   const [currentPage, setCurrentPage] = useState("color");
-  const [color, setColor] = useState("");
+  const [scheduleColor, setScheduleColor] = useState("");
 
   const onSubmit = () => {
     alert(`스케쥴 생성이 완료되었습니다.`);
@@ -12,7 +12,7 @@ const CreateSchedule = () => {
   const formRender = () => {
     switch (currentPage) {
       case "color": {
-        return <Palette color={color} setColor={setColor} />;
+        return <Palette scheduleColor={scheduleColor} setScheduleColor={setScheduleColor} />;
       }
     }
     return null;
