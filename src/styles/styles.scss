@@ -1,0 +1,16 @@
+
+@import "./components/create-schedule.scss";
+@import "./components/palette.scss";
+
+
+/* global */
+
+body{
+    width: 1200px;
+}
+
+$colors : (red: red, blue: blue, green: green, yellow: yellow);
+
+@each $color, $value in $colors {
+    .#{$color} {background-color: $value;}
+}
