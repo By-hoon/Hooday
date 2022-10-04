@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { colors } from "../shared/Contants";
+import { colors } from "../shared/Constants";
 import { PaletteProps } from "../shared/Props";
 import PaletteAffiliation from "./PaletteAffiliation";
 
