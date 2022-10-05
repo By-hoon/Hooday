@@ -4,7 +4,7 @@ import Palette from "./Palette";
 const CreateSchedule = () => {
   const [currentPage, setCurrentPage] = useState("color");
   const [scheduleColor, setScheduleColor] = useState("");
-
+  console.log(scheduleColor);
   const onSubmit = () => {
     alert(`스케쥴 생성이 완료되었습니다.`);
   };

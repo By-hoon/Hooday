@@ -1,28 +1,45 @@
+import { Icon } from "@iconify/react";
+import { colorsAffiliation } from "../shared/Constants";
 import { PaletteProps } from "../shared/Props";
 
 interface AffiliationProps extends PaletteProps {
   setIsShowAffiliation: React.Dispatch<React.SetStateAction<boolean>>;
-  affiliationColor: string;
+  baseColor: string;
 }
 
 const PaletteAffiliation = ({
   scheduleColor,
   setScheduleColor,
   setIsShowAffiliation,
-  affiliationColor,
+  baseColor,
 }: AffiliationProps) => {
   const disappearAffiliation = () => {
     setIsShowAffiliation(false);
+  };
+  const onSetScheduleColor = (colorAffiliation: string) => {
+    setScheduleColor(colorAffiliation);
   };
 
   return (
     <div className="palette-affiliation__container">
       <div className="disappear-affiliation-icon__container">
-        <span onClick={disappearAffiliation}>X</span> {/* 추후 아이콘으로 변경 */}
+        <span onClick={disappearAffiliation}>
+          <Icon icon="bi:x-circle-fill" />
+        </span>
       </div>
-      <div className="affiliation-color__container"></div>
-      {/* Constant 파일에 계열색 배열 추가하여 맵핑 */}
-      {/* 마찬가지로 Scss 파일에도 추가 */}
+      <div className="affiliation-colors__container">
+        {colorsAffiliation[baseColor].map((colorAffiliation) => {
+          return (
+            <div
+              key={colorAffiliation}
+              className={`affiliation-color__container ${colorAffiliation}`}
+              onClick={() => {
+                onSetScheduleColor(colorAffiliation);
+              }}
+            ></div>
+          );
+        })}
+      </div>
     </div>
   );
 };

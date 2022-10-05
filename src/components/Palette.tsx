@@ -5,7 +5,7 @@ import PaletteAffiliation from "./PaletteAffiliation";
 
 const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
   const [currentColor, setCurrentColor] = useState("");
-  const [affiliationColor, setAffiliationColor] = useState("");
+  const [baseColor, setBaseColor] = useState("");
   const [isShowAffiliation, setIsShowAffiliation] = useState(false);
 
   const onMouseOverColor = (color: string) => {
@@ -14,7 +14,7 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
 
   const appearAffiliation = (color: string) => {
     setIsShowAffiliation(true);
-    setAffiliationColor(color);
+    setBaseColor(color);
   };
 
   return (
@@ -39,7 +39,7 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
           scheduleColor={scheduleColor}
           setScheduleColor={setScheduleColor}
           setIsShowAffiliation={setIsShowAffiliation}
-          affiliationColor={affiliationColor}
+          baseColor={baseColor}
         />
       ) : null}
     </div>
