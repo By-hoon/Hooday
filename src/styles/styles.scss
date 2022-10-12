@@ -2,11 +2,13 @@
 
 @import "./components/create-schedule.scss";
 @import "./components/palette.scss";
+@import "./components/palette-affiliation.scss";
 
 /* global */
 
 body {
   width: 1200px;
+  margin: 120px auto 0 auto;
 }
 
 @mixin mixin-color-palette($palette) {

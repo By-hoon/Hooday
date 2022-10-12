@@ -1,10 +1,11 @@
-.palette__container{
-    display: flex;
-    justify-content: space-between;
+.palette__container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
-.color__container{
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+.color__container {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
 }

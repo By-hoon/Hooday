@@ -1,0 +1,17 @@
+.palette-affiliation__container {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.affiliation-colors__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.affiliation-color__container {
+  @extend .color__container;
+}
