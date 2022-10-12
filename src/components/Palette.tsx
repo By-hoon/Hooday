@@ -12,9 +12,14 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
     setCurrentColor(color);
   };
 
-  const appearAffiliation = (color: string) => {
-    setIsShowAffiliation(true);
-    setBaseColor(color);
+  const isAppearAffiliation = (color: string) => {
+    if (isShowAffiliation) {
+      setIsShowAffiliation(false);
+      setBaseColor("");
+    } else {
+      setIsShowAffiliation(true);
+      setBaseColor(color);
+    }
   };
 
   return (
@@ -30,7 +35,7 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
             setCurrentColor("");
           }}
           onClick={() => {
-            appearAffiliation(color);
+            isAppearAffiliation(color);
           }}
         ></div>
       ))}

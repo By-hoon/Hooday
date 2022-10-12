@@ -13,20 +13,12 @@ const PaletteAffiliation = ({
   setIsShowAffiliation,
   baseColor,
 }: AffiliationProps) => {
-  const disappearAffiliation = () => {
-    setIsShowAffiliation(false);
-  };
   const onSetScheduleColor = (colorAffiliation: string) => {
     setScheduleColor(colorAffiliation);
   };
 
   return (
     <div className="palette-affiliation__container">
-      <div className="disappear-affiliation-icon__container">
-        <span onClick={disappearAffiliation}>
-          <Icon icon="bi:x-circle-fill" />
-        </span>
-      </div>
       <div className="affiliation-colors__container">
         {colorsAffiliation[baseColor].map((colorAffiliation) => {
           return (
