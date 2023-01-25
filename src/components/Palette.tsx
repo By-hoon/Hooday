@@ -27,7 +27,8 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
       {colors.map((color, index) => (
         <div
           key={color}
-          className={`color__container ${color} ${currentColor === color ? "display-color" : null}`}
+          className={`color__container ${currentColor === color ? "display-color" : null}`}
+          style={{ backgroundColor: color }}
           onMouseOver={() => {
             onMouseOverColor(color);
           }}

@@ -24,7 +24,8 @@ const PaletteAffiliation = ({
           return (
             <div
               key={colorAffiliation}
-              className={`affiliation-color__container ${colorAffiliation}`}
+              className={`affiliation-color__container`}
+              style={{ backgroundColor: `#${colorAffiliation}` }}
               onClick={() => {
                 onSetScheduleColor(colorAffiliation);
               }}
