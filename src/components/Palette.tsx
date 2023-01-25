@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { colors } from "../shared/Constants";
 import { PaletteProps } from "../shared/Props";
 import PaletteAffiliation from "./PaletteAffiliation";
@@ -7,6 +7,8 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
   const [currentColor, setCurrentColor] = useState("");
   const [baseColor, setBaseColor] = useState("");
   const [isShowAffiliation, setIsShowAffiliation] = useState(false);
+
+  const affiliationRef = useRef<HTMLInputElement>(null);
 
   const onMouseOverColor = (color: string) => {
     setCurrentColor(color);
@@ -22,8 +24,22 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
     }
   };
 
+  const onClickOutSide = (e: any) => {
+    if (isShowAffiliation && affiliationRef.current && !affiliationRef.current.contains(e.target)) {
+      setIsShowAffiliation(false);
+      setBaseColor("");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", onClickOutSide);
+    return () => {
+      document.removeEventListener("click", onClickOutSide);
+    };
+  });
+
   return (
-    <div className="palette__container">
+    <div className="palette__container" ref={affiliationRef}>
       {colors.map((color, index) => (
         <div
           key={color}
@@ -38,7 +54,7 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
           onClick={() => {
             isAppearAffiliation(color);
           }}
-        ></div>
+        />
       ))}
       {isShowAffiliation ? (
         <PaletteAffiliation

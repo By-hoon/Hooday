@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Create from "./routes/Create";
-import Home from "./routes/Home";
+import Create from "../routes/Create";
+import Home from "../routes/Home";
 
 const Router = () => {
   return (
