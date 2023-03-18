@@ -38,7 +38,7 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
         <div
           key={color}
           className={`color__container`}
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: `#${color}` }}
           onClick={() => {
             isAppearAffiliation(color);
           }}
