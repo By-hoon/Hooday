@@ -1,15 +1,11 @@
 import { colorsAffiliation } from "../shared/Constants";
-import { PaletteProps } from "../shared/Props";
 
-interface AffiliationProps extends PaletteProps {
+interface AffiliationProps {
+  setColor: (color: string) => void;
   baseColor: string;
 }
 
-const PaletteAffiliation = ({ setScheduleColor, baseColor }: AffiliationProps) => {
-  const onSetScheduleColor = (colorAffiliation: string) => {
-    setScheduleColor(colorAffiliation);
-  };
-
+const PaletteAffiliation = ({ setColor, baseColor }: AffiliationProps) => {
   return (
     <div className="palette-affiliation__container">
       <div className="affiliation-colors__container">
@@ -20,7 +16,7 @@ const PaletteAffiliation = ({ setScheduleColor, baseColor }: AffiliationProps) =
               className={`affiliation-color__container`}
               style={{ backgroundColor: `#${colorAffiliation}` }}
               onClick={() => {
-                onSetScheduleColor(colorAffiliation);
+                setColor(colorAffiliation);
               }}
             ></div>
           );

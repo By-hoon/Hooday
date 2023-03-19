@@ -5,7 +5,3 @@ export interface ScheduleProps {
   detail: string;
   required: number;
 }
-
-export interface PaletteProps {
-  setScheduleColor: React.Dispatch<React.SetStateAction<string>>;
-}

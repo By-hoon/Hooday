@@ -13,7 +13,6 @@ export const colors = [
 
 export const colorsAffiliation: { [key: string]: string[] } = {
   "797979": [
-    "F7F7F7",
     "ECECEC",
     "DADADA",
     "C1C1C1",
@@ -28,7 +27,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "242424",
   ],
   "666E8C": [
-    "F6F6F8",
     "E9EAEE",
     "D4D7DF",
     "B8BCCA",
@@ -43,7 +41,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "1E212A",
   ],
   "05C8E6": [
-    "F0FCFE",
     "DBF7FB",
     "B9F0F8",
     "8BE6F3",
@@ -58,7 +55,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "013C45",
   ],
   "03EDD2": [
-    "F0FEFC",
     "DAFCF8",
     "B9FAF2",
     "8AF7EA",
@@ -73,7 +69,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "01473F",
   ],
   "058EE2": [
-    "F0F8FD",
     "DBEFFB",
     "B9E0F7",
     "8BCBF2",
@@ -88,7 +83,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "012A43",
   ],
   "0032B4": [
-    "F0F3FB",
     "DAE1F4",
     "B8C6EA",
     "89A0DC",
@@ -103,7 +97,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "000F36",
   ],
   "972DEA": [
-    "F9F3FE",
     "F0E1FC",
     "E2C5F9",
     "CF9EF5",
@@ -118,7 +111,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "2D0D46",
   ],
   E6006E: [
-    "FEF0F6",
     "FBDAEA",
     "F8B8D7",
     "F389BC",
@@ -133,7 +125,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "450021",
   ],
   FF2C5A: [
-    "FFF3F5",
     "FFE0E7",
     "FFC4D1",
     "FF9DB3",
@@ -148,7 +139,6 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "4C0D1B",
   ],
   FFCA28: [
-    "FFFCF2",
     "FFF7E0",
     "FFF0C3",
     "FFE69C",

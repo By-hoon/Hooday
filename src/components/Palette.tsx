@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { colors } from "../shared/Constants";
-import { PaletteProps } from "../shared/Props";
 import PaletteAffiliation from "./PaletteAffiliation";
 
-const Palette = ({ setScheduleColor }: PaletteProps) => {
+interface PaletteProps {
+  setColor: (color: string) => void;
+}
+
+const Palette = ({ setColor }: PaletteProps) => {
   const [baseColor, setBaseColor] = useState("");
   const [isShowAffiliation, setIsShowAffiliation] = useState(false);
 
@@ -34,19 +37,19 @@ const Palette = ({ setScheduleColor }: PaletteProps) => {
 
   return (
     <div className="palette__container" ref={affiliationRef}>
-      {colors.map((color) => (
-        <div
-          key={color}
-          className={`color__container`}
-          style={{ backgroundColor: `#${color}` }}
-          onClick={() => {
-            isAppearAffiliation(color);
-          }}
-        />
-      ))}
-      {isShowAffiliation ? (
-        <PaletteAffiliation setScheduleColor={setScheduleColor} baseColor={baseColor} />
-      ) : null}
+      <div className="colors__container">
+        {colors.map((color) => (
+          <div
+            key={color}
+            className={`color__container`}
+            style={{ backgroundColor: `#${color}` }}
+            onClick={() => {
+              isAppearAffiliation(color);
+            }}
+          />
+        ))}
+      </div>
+      {isShowAffiliation ? <PaletteAffiliation setColor={setColor} baseColor={baseColor} /> : null}
     </div>
   );
 };
