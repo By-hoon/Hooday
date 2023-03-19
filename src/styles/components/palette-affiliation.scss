@@ -1,17 +1,22 @@
-.palette-affiliation__container {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-}
-
 .affiliation-colors__container {
+  width: 100px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .affiliation-color__container {
   @extend .color__container;
+}
+
+.affiliation-color__container {
+  animation: temp 1s ease forwards;
+  @keyframes temp {
+    0% {
+      transform: scale(120%);
+    }
+    100% {
+      transform: scale(100%);
+    }
+  }
 }
