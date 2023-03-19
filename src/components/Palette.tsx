@@ -3,7 +3,7 @@ import { colors } from "../shared/Constants";
 import { PaletteProps } from "../shared/Props";
 import PaletteAffiliation from "./PaletteAffiliation";
 
-const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
+const Palette = ({ setScheduleColor }: PaletteProps) => {
   const [baseColor, setBaseColor] = useState("");
   const [isShowAffiliation, setIsShowAffiliation] = useState(false);
 
@@ -45,12 +45,7 @@ const Palette = ({ scheduleColor, setScheduleColor }: PaletteProps) => {
         />
       ))}
       {isShowAffiliation ? (
-        <PaletteAffiliation
-          scheduleColor={scheduleColor}
-          setScheduleColor={setScheduleColor}
-          setIsShowAffiliation={setIsShowAffiliation}
-          baseColor={baseColor}
-        />
+        <PaletteAffiliation setScheduleColor={setScheduleColor} baseColor={baseColor} />
       ) : null}
     </div>
   );

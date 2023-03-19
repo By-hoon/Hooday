@@ -7,6 +7,5 @@ export interface ScheduleProps {
 }
 
 export interface PaletteProps {
-  scheduleColor: string;
   setScheduleColor: React.Dispatch<React.SetStateAction<string>>;
 }

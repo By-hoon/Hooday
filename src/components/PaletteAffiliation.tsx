@@ -1,18 +1,11 @@
-import { Icon } from "@iconify/react";
 import { colorsAffiliation } from "../shared/Constants";
 import { PaletteProps } from "../shared/Props";
 
 interface AffiliationProps extends PaletteProps {
-  setIsShowAffiliation: React.Dispatch<React.SetStateAction<boolean>>;
   baseColor: string;
 }
 
-const PaletteAffiliation = ({
-  scheduleColor,
-  setScheduleColor,
-  setIsShowAffiliation,
-  baseColor,
-}: AffiliationProps) => {
+const PaletteAffiliation = ({ setScheduleColor, baseColor }: AffiliationProps) => {
   const onSetScheduleColor = (colorAffiliation: string) => {
     setScheduleColor(colorAffiliation);
   };

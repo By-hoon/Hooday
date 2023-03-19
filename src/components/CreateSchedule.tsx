@@ -12,7 +12,7 @@ const CreateSchedule = () => {
   const formRender = () => {
     switch (currentPage) {
       case "color": {
-        return <Palette scheduleColor={scheduleColor} setScheduleColor={setScheduleColor} />;
+        return <Palette setScheduleColor={setScheduleColor} />;
       }
     }
     return null;
