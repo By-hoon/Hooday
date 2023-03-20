@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useState } from "react";
+import useControlRenderingByClick from "../hooks/useControlRenderingByClick";
 import { colors } from "../shared/Constants";
 import PaletteAffiliation from "./PaletteAffiliation";
 
@@ -7,37 +8,29 @@ interface PaletteProps {
 }
 
 const Palette = ({ setColor }: PaletteProps) => {
-  const [baseColor, setBaseColor] = useState("");
-  const [isShowAffiliation, setIsShowAffiliation] = useState(false);
+  let [baseColor, setBaseColor] = useState("");
+  const {
+    show: isShowAffiliation,
+    setShow: setIsShowAffiliation,
+    ref: affiliationRef,
+  } = useControlRenderingByClick();
 
-  const affiliationRef = useRef<HTMLInputElement>(null);
   const isAppearAffiliation = (color: string) => {
     if (color === baseColor) {
       setIsShowAffiliation(false);
-      setBaseColor("");
       return;
     }
     setIsShowAffiliation(true);
     setBaseColor(color);
   };
 
-  const onClickOutSide = (e: any) => {
-    if (isShowAffiliation && affiliationRef.current && !affiliationRef.current.contains(e.target)) {
-      setIsShowAffiliation(false);
-      setBaseColor("");
-    }
-  };
-
   useEffect(() => {
-    document.addEventListener("click", onClickOutSide);
-    return () => {
-      document.removeEventListener("click", onClickOutSide);
-    };
-  });
+    if (!isShowAffiliation) setBaseColor("");
+  }, [isShowAffiliation]);
 
   return (
-    <div className="palette__container" ref={affiliationRef}>
-      <div className="colors__container">
+    <div className="palette__container">
+      <div className="colors__container" ref={affiliationRef}>
         {colors.map((color) => (
           <div
             key={color}
@@ -54,4 +47,4 @@ const Palette = ({ setColor }: PaletteProps) => {
   );
 };
 
-export default Palette;
+export default memo(Palette);
