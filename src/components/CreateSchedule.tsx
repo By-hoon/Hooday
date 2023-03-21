@@ -1,9 +1,10 @@
 import { useState } from "react";
+import useControlRenderingByClick from "../hooks/useControlRenderingByClick";
 import Palette from "./Palette";
 
 const CreateSchedule = () => {
   const [scheduleColor, setScheduleColor] = useState("058EE2");
-  const [isOpenPalette, setIsOpenPalette] = useState(false);
+  const { show: isOpenPalette, setShow: setIsOpenPalette, ref: createRef } = useControlRenderingByClick();
 
   const openPalette = () => {
     setIsOpenPalette(true);
@@ -20,13 +21,13 @@ const CreateSchedule = () => {
   return (
     <div className="create-schedule__container">
       <form onSubmit={onSubmit}>
-        <div className="schedule-color__container">
+        <div className="schedule-color__container" ref={createRef}>
           <div className="schedule-color" style={{ backgroundColor: `#${scheduleColor}` }} />
           <div className="color-changer" onClick={openPalette}>
             변경
           </div>
+          {isOpenPalette ? <Palette setColor={onSetScheduleColor} /> : null}
         </div>
-        {isOpenPalette ? <Palette setColor={onSetScheduleColor} /> : null}
       </form>
     </div>
   );
