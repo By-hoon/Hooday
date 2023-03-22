@@ -6,7 +6,7 @@ const CreateSchedule = () => {
   const [scheduleColor, setScheduleColor] = useState("058EE2");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(10);
   const { show: isOpenPalette, setShow: setIsOpenPalette, ref: createRef } = useControlRenderingByClick();
 
   const openPalette = () => {
@@ -24,7 +24,8 @@ const CreateSchedule = () => {
     setContent(e.target.value);
   }, []);
   const changeTime = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setTime(Number(e.target.value));
+    const targetTime = Math.floor(Number(e.target.value));
+    setTime(targetTime);
   }, []);
 
   const onSubmit = () => {
@@ -66,7 +67,15 @@ const CreateSchedule = () => {
           <div className="input-title">
             소요 시간 <span>단위: 분</span>
           </div>
-          <input className="time__input" type="number" value={time} onChange={changeTime} required />
+          <input
+            className="time__input"
+            min={10}
+            max={600}
+            type="number"
+            value={time}
+            onChange={changeTime}
+            required
+          />
         </div>
         <div className="submit__container">
           <input type="submit" value="등록" />
