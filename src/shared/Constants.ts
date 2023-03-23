@@ -153,3 +153,5 @@ export const colorsAffiliation: { [key: string]: string[] } = {
     "4C3C0C",
   ],
 };
+
+export const timeOptions = [10, 30, 60];

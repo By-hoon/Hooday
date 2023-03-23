@@ -1,6 +1,8 @@
 import { useCallback, useState } from "react";
+import { Icon } from "@iconify/react";
 import useControlRenderingByClick from "../hooks/useControlRenderingByClick";
 import Palette from "./Palette";
+import { timeOptions } from "../shared/Constants";
 
 const CreateSchedule = () => {
   const [scheduleColor, setScheduleColor] = useState("058EE2");
@@ -27,6 +29,14 @@ const CreateSchedule = () => {
     const targetTime = Math.floor(Number(e.target.value));
     setTime(targetTime);
   }, []);
+
+  const changeTimeByButton = (option: number) => {
+    if (time + option < 10 || time + option > 600) {
+      alert("소요 시간은 10분 ~ 600분으로 설정 가능합니다.");
+      return;
+    }
+    setTime((currentTime) => currentTime + option);
+  };
 
   const onSubmit = () => {
     alert(`스케쥴 생성이 완료되었습니다.`);
@@ -76,6 +86,27 @@ const CreateSchedule = () => {
             onChange={changeTime}
             required
           />
+          <div className="time-options__container">
+            {timeOptions.map((timeOption) => (
+              <div className="time-option__container" key={timeOption}>
+                <button
+                  type="button"
+                  className="time-option__button"
+                  onClick={() => changeTimeByButton(timeOption)}
+                >
+                  <Icon icon="material-symbols:keyboard-arrow-up-rounded" />
+                </button>
+                <div className="time-option">{timeOption}</div>
+                <button
+                  type="button"
+                  className="time-option__button"
+                  onClick={() => changeTimeByButton(-timeOption)}
+                >
+                  <Icon icon="material-symbols:keyboard-arrow-down-rounded" />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="submit__container">
           <input type="submit" value="등록" />
