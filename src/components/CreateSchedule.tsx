@@ -4,6 +4,9 @@ import useControlRenderingByClick from "../hooks/useControlRenderingByClick";
 import Palette from "./Palette";
 import { timeOptions } from "../shared/Constants";
 
+import { collection, addDoc } from "firebase/firestore";
+import { dbService } from "../firebase";
+
 const CreateSchedule = () => {
   const [scheduleColor, setScheduleColor] = useState("058EE2");
   const [title, setTitle] = useState("");
@@ -38,8 +41,21 @@ const CreateSchedule = () => {
     setTime((currentTime) => currentTime + option);
   };
 
-  const onSubmit = () => {
-    alert(`스케쥴 생성이 완료되었습니다.`);
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    const scheduleData = {
+      scheduleColor,
+      title,
+      content,
+      time,
+    };
+    addDoc(collection(dbService, "schedules"), scheduleData)
+      .then(() => {
+        alert(`스케쥴 생성이 완료되었습니다.`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
