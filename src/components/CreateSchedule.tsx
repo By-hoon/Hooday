@@ -3,9 +3,11 @@ import { Icon } from "@iconify/react";
 import useControlRenderingByClick from "../hooks/useControlRenderingByClick";
 import Palette from "./Palette";
 import { timeOptions } from "../shared/Constants";
+import { ScheduleProps } from "../shared/Props";
 
 import { collection, addDoc } from "firebase/firestore";
 import { dbService } from "../firebase";
+import { uuidv4 } from "@firebase/util";
 
 const CreateSchedule = () => {
   const [scheduleColor, setScheduleColor] = useState("058EE2");
@@ -41,10 +43,10 @@ const CreateSchedule = () => {
     setTime((currentTime) => currentTime + option);
   };
 
-  const onSubmit = (e: any) => {
-    e.preventDefault();
-    const scheduleData = {
-      scheduleColor,
+  const onSubmit = () => {
+    const scheduleData: ScheduleProps = {
+      id: uuidv4(),
+      color: scheduleColor,
       title,
       content,
       time,
