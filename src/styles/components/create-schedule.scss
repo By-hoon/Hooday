@@ -18,3 +18,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.time__input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
